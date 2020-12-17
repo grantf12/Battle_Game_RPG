@@ -41,4 +41,6 @@ module.exports = function (app) {
     console.log(req.user);
     res.render("battle-info", req.user);
   });
+
+  
 };
