@@ -111,6 +111,7 @@ Character.prototype.attack = function(enemy) {
       modifier = 1.5;
     }
   }
+<<<<<<< HEAD:models/characters.js
   switch (atkType) {
     case this.atkOne:
       modifierRoll();
@@ -233,3 +234,5 @@ mage.attack(warrior);
 //   console.log(char1.hp);
 //   return char1.hp;
 // }
+=======
+>>>>>>> 00a5d5a2fa7f5a6790556545271d6ca27d472b0a:models/character.js
