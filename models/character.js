@@ -96,42 +96,41 @@ const jack = new Character(
   100
 );
 module.exports = { warrior, mage, tank, cannon, wall, jack };
-let modifier;
+//let modifier;
 
-Character.prototype.attack = function(enemy) {
-  const atkType = document.getElementById("#atkType");
-  function modifierRoll() {
-    const randNum = Math.floor(Math.random() * 11);
-    console.log(randNum + " random");
-    if (randNum === 0 || randNum === 1) {
-      modifier = 0;
-    } else if (randNum > 1 && randNum < 10) {
-      modifier = 1;
-    } else {
-      modifier = 1.5;
-    }
-  }
-<<<<<<< HEAD:models/characters.js
-  switch (atkType) {
-    case this.atkOne:
-      modifierRoll();
-      const dmgOutput1 =
-        ((this.atkOneDmg * this.atk) / enemy.def / 5 + 2) * modifier;
-      enemy.hp -= dmgOutput1;
-      console.log(modifier);
-      console.log(dmgOutput1);
-      console.log(enemy.hp);
-      break;
-    case this.atkTwo:
-      modifierRoll();
-      const dmgOutput2 =
-        ((this.atkTwoDmg * this.magAtk) / enemy.magDef / 5 + 2) * modifier;
-      enemy.hp -= dmgOutput2;
-      console.log(modifier);
-      console.log(dmgOutput2);
-      console.log(enemy.hp);
-  }
-};
+// Character.prototype.attack = function(enemy) {
+//   const atkType = document.getElementById("#atkType");
+//   function modifierRoll() {
+//     const randNum = Math.floor(Math.random() * 11);
+//     console.log(randNum + " random");
+//     if (randNum === 0 || randNum === 1) {
+//       modifier = 0;
+//     } else if (randNum > 1 && randNum < 10) {
+//       modifier = 1;
+//     } else {
+//       modifier = 1.5;
+//     }
+//   }
+//   switch (atkType) {
+//     case this.atkOne:
+//       modifierRoll();
+//       const dmgOutput1 =
+//         ((this.atkOneDmg * this.atk) / enemy.def / 5 + 2) * modifier;
+//       enemy.hp -= dmgOutput1;
+//       console.log(modifier);
+//       console.log(dmgOutput1);
+//       console.log(enemy.hp);
+//       break;
+//     case this.atkTwo:
+//       modifierRoll();
+//       const dmgOutput2 =
+//         ((this.atkTwoDmg * this.magAtk) / enemy.magDef / 5 + 2) * modifier;
+//       enemy.hp -= dmgOutput2;
+//       console.log(modifier);
+//       console.log(dmgOutput2);
+//       console.log(enemy.hp);
+//   }
+// };
 
 warrior.attack(mage);
 mage.attack(warrior);
@@ -234,5 +233,3 @@ mage.attack(warrior);
 //   console.log(char1.hp);
 //   return char1.hp;
 // }
-=======
->>>>>>> 00a5d5a2fa7f5a6790556545271d6ca27d472b0a:models/character.js
