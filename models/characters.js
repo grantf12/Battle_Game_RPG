@@ -16,14 +16,14 @@ const magAtkDmg = 100;
 
 //have a button that gives params for a new character to replace the name property so that two of the same types of characters can be differentiated by the program
 //i.e. if both players pick mage, both players will take damage everytime they attack eachother.
-// const warrior = new Character("Warrior", 130, 130, 100, 60, 80);
-// const mage = new Character("Mage", 100, 50, 80, 150, 120);
-// const tank = new Character("Tank", 150, 50, 130, 40, 130);
-// const cannon = new Character("Cannon", 60, 150, 70, 150, 70);
-// const wall = new Character("Wall", 200, 90, 70, 70, 70);
-// const jack = new Character("Jack", 100, 100, 100, 100, 100);
+const warrior = new Character("Warrior", 130, 130, 100, 60, 80);
+const mage = new Character("Mage", 100, 50, 80, 150, 120);
+const tank = new Character("Tank", 150, 50, 130, 40, 130);
+const cannon = new Character("Cannon", 60, 150, 70, 150, 70);
+const wall = new Character("Wall", 200, 90, 70, 70, 70);
+const jack = new Character("Jack", 100, 100, 100, 100, 100);
 
-// let modifier;
+let modifier;
 
 Character.prototype.attack = function(enemy, atkType) {
   // const atkType = document.getElementById("#atkType");
@@ -43,6 +43,12 @@ Character.prototype.attack = function(enemy, atkType) {
       const dmgOutput1 =
         ((physAtkDmg * this.atk) / enemy.def / 5 + 2) * modifier;
       enemy.hp -= dmgOutput1;
+      console.log(`
+      ${this.name} attacked ${enemy} with a Physical Attack for ${dmgOutput1} /n
+      `);
+      if (dmgOutput2 === 0) {
+        console.log(`${this.name} Missed!`);
+      }
       if (enemy.hp < 0) {
         enemy.hp = 0;
       }
@@ -52,22 +58,31 @@ Character.prototype.attack = function(enemy, atkType) {
       const dmgOutput2 =
         ((magAtkDmg * this.magAtk) / enemy.magDef / 5 + 2) * modifier;
       enemy.hp -= dmgOutput2;
+      console.log(`
+      ${this.name} attacked ${enemy} with a Magical Attack for ${dmgOutput2} /n
+      `);
+      if (dmgOutput2 === 0) {
+        console.log(`${this.name} Missed!`);
+      }
       if (enemy.hp < 0) {
         enemy.hp = 0;
       }
   }
+  enemy.isAlive()
 };
 
 //  RUN THE FUNCTION charact(warrior) in the button on html
-// function chooseCharact(charact) {
-//   const char1 = new Character(
-//     charact.hp,
-//     charact.atk,
-//     charact.def,
-//     charact.magAtk,
-//     charact.magDef
-//   );
-// }
+function chooseCharact(charact) {
+  const char1 = new Character(
+    charact.hp,
+    charact.atk,
+    charact.def,
+    charact.magAtk,
+    charact.magDef
+  );
+}
+
+
 
 // const battle = function() {
 //   const charType1 = document.getElementById("#charBtn");
