@@ -38,12 +38,14 @@ Character.prototype.attack = function(enemy) {
   switch (atkType) {
     case this.physAtk:
       modifierRoll();
-      const dmgOutput1 = ((this.physAtkDmg * this.atk) / enemy.def / 5 + 2) * modifier;
+      const dmgOutput1 =
+        ((this.physAtkDmg * this.atk) / enemy.def / 5 + 2) * modifier;
       enemy.hp -= dmgOutput1;
       break;
     case this.magAtk:
       modifierRoll();
-      const dmgOutput2 = ((this.magAtkDmg * this.magAtk) / enemy.magDef / 5 + 2) * modifier;
+      const dmgOutput2 =
+        ((this.magAtkDmg * this.magAtk) / enemy.magDef / 5 + 2) * modifier;
       enemy.hp -= dmgOutput2;
   }
 };
