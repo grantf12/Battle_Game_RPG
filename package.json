@@ -1,12 +1,13 @@
 {
-  "name": "Project_2",
+  "name": "project_2",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run lint",
     "start": "node server.js",
-    "lint": "eslint **/*.js --fix",
+    "lint": "eslint --quiet .",
+    "fix": "eslint --fix .",
     "watch": "nodemon server.js"
   },
   "keywords": [],
