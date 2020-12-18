@@ -7,10 +7,10 @@ function Character(name, hp, atk, def, magAtk, magDef) {
   this.magDef = magDef;
 }
 
-// const physAtk = "Physical";
-// const physAtkDmg = 100;
-// const magAtk = "Magical";
-// const magAtkDmg = 100;
+const physAtk = "Physical";
+const physAtkDmg = 100;
+const magAtk = "Magical";
+const magAtkDmg = 100;
 
 //have a button that gives params for a new character to replace the name property so that two of the same types of characters can be differentiated by the program
 //i.e. if both players pick mage, both players will take damage everytime they attack eachother.
@@ -20,7 +20,7 @@ const tank = new Character("Tank", 150, 50, 130, 40, 130);
 const cannon = new Character("Cannon", 60, 150, 70, 150, 70);
 const wall = new Character("Wall", 200, 90, 70, 70, 70);
 const jack = new Character("Jack", 100, 100, 100, 100, 100);
-module.exports = { warrior, mage, tank, cannon, wall, jack };
+
 let modifier;
 
 Character.prototype.attack = function(enemy) {
@@ -36,19 +36,27 @@ Character.prototype.attack = function(enemy) {
     }
   }
   switch (atkType) {
-    case this.physAtk:
+    case physAtk:
       modifierRoll();
-      const dmgOutput1 =
-        ((this.physAtkDmg * this.atk) / enemy.def / 5 + 2) * modifier;
+      const dmgOutput1 = ((physAtkDmg * this.atk) / enemy.def / 5 + 2) * modifier;
       enemy.hp -= dmgOutput1;
+      if (enemy.hp < 0) {
+        enemy.hp = 0;
+      }
+      enemy.isAlive();
       break;
-    case this.magAtk:
+    case magAtk:
       modifierRoll();
-      const dmgOutput2 =
-        ((this.magAtkDmg * this.magAtk) / enemy.magDef / 5 + 2) * modifier;
+      const dmgOutput2 = ((magAtkDmg * this.magAtk) / enemy.magDef / 5 + 2) * modifier;
       enemy.hp -= dmgOutput2;
+      if (enemy.hp < 0) {
+        enemy.hp = 0;
+      }
+      enemy.isAlive();
   }
 };
+
+function compPick() = 
 
 warrior.attack(mage);
 mage.attack(warrior);
@@ -77,3 +85,9 @@ mage.attack(warrior);
 //   console.log(char1.hp);
 //   return char1.hp;
 // }
+Character.prototype.isAlive = function() {
+  if (this.hp > 0) {
+    return true;
+  }
+};
+module.exports = { warrior, mage, tank, cannon, wall, jack };
