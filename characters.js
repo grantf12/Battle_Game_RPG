@@ -12,21 +12,19 @@ const physAtkDmg = 100;
 const magAtk = "Magical";
 const magAtkDmg = 100;
 
-// const char2 =
-
-//have a button that gives params for a new character to replace the name property so that two of the same types of characters can be differentiated by the program
-//i.e. if both players pick mage, both players will take damage everytime they attack eachother.
+// have a button that gives params for a new character to replace the name property so that two of the same types of characters can be differentiated by the program
+// i.e. if both players pick mage, both players will take damage everytime they attack eachother.
 const warrior = new Character("Warrior", 130, 130, 100, 60, 80);
-const mage = new Character("Mage", 100, 50, 80, 150, 120);
-const tank = new Character("Tank", 150, 50, 130, 40, 130);
-const cannon = new Character("Cannon", 60, 150, 70, 150, 70);
-const wall = new Character("Wall", 200, 90, 70, 70, 70);
-const jack = new Character("Jack", 100, 100, 100, 100, 100);
+// const mage = new Character("Mage", 100, 50, 80, 150, 120);
+// const tank = new Character("Tank", 150, 50, 130, 40, 130);
+// const cannon = new Character("Cannon", 60, 150, 70, 150, 70);
+// const wall = new Character("Wall", 200, 90, 70, 70, 70);
+// const jack = new Character("Jack", 100, 100, 100, 100, 100);
 
 let modifier;
 
 Character.prototype.attack = function(enemy, atkType) {
-  // const atkType = document.getElementById("#atkType");
+  // let atkType = document.getElementById("#atkType");
   function modifierRoll() {
     const randNum = Math.floor(Math.random() * 11);
     if (randNum === 0 || randNum === 1) {
@@ -68,7 +66,7 @@ Character.prototype.attack = function(enemy, atkType) {
         enemy.hp = 0;
       }
   }
-  enemy.isAlive()
+  enemy.isAlive();
 };
 
 //  RUN THE FUNCTION charact(warrior) in the button on html
@@ -80,113 +78,91 @@ function chooseCharact(charact) {
     charact.magAtk,
     charact.magDef
   );
+  return char1;
 }
 
+// const compPick = function() {
+//   const charType2 = Math.floor(Math.random() * 6);
 
-
-// const battle = function() {
-//   const charType1 = document.getElementById("#charBtn");
-
-//   switch (charType1) {
-//     case warrior:
-//       char1 = new Character(
+//   switch (charType2) {
+//     case 0:
+//       char2 = new Character(
 //         warrior.hp,
 //         warrior.atk,
 //         warrior.def,
 //         warrior.magAtk,
-//         warrior.magDef,
-//         warrior.atkOne,
-//         warrior.atkOneDmg,
-//         warrior.atkTwo,
-//         warrior.atkTwoDmg
+//         warrior.magDef
 //       );
 //       break;
-//     case mage:
-//       char1 = new Character(
+//     case 1:
+//       char2 = new Character(
 //         mage.hp,
 //         mage.atk,
 //         mage.def,
 //         mage.magAtk,
-//         mage.magDef,
-//         mage.atkOne,
-//         mage.atkOneDmg,
-//         mage.atkTwo,
-//         mage.atkTwoDmg
+//         mage.magDef
 //       );
 //       break;
-//     case tank:
-//       char1 = new Character(
+//     case 2:
+//       char2 = new Character(
 //         tank.hp,
 //         tank.atk,
 //         tank.def,
 //         tank.magAtk,
-//         tank.magDef,
-//         tank.atkOne,
-//         tank.atkOneDmg,
-//         tank.atkTwo,
-//         tank.atkTwoDmg
+//         tank.magDef
 //       );
 //       break;
-//     case cannon:
-//       char1 = new Character(
+//     case 3:
+//       char2 = new Character(
 //         cannon.hp,
 //         cannon.atk,
 //         cannon.def,
 //         cannon.magAtk,
-//         cannon.magDef,
-//         cannon.atkOne,
-//         cannon.atkOneDmg,
-//         cannon.atkTwo,
-//         cannon.atkTwoDmg
+//         cannon.magDef
 //       );
 //       break;
-//     case wall:
-//       char1 = new Character(
+//     case 4:
+//       char2 = new Character(
 //         wall.hp,
 //         wall.atk,
 //         wall.def,
 //         wall.magAtk,
-//         wall.magDef,
-//         wall.atkOne,
-//         wall.atkOneDmg,
-//         wall.atkTwo,
-//         wall.atkTwoDmg
+//         wall.magDef
 //       );
 //       break;
-//     case jack:
-//       char1 = new Character(
+//     case 5:
+//       char2 = new Character(
 //         jack.hp,
 //         jack.atk,
 //         jack.def,
 //         jack.magAtk,
-//         jack.magDef,
-//         jack.atkOne,
-//         jack.atkOneDmg,
-//         jack.atkTwo,
-//         jack.atkTwoDmg
+//         jack.magDef
 //       );
 //       break;
 //   }
+//   return char2;
 // };
 
-// async function turn() {
+// function turn() {
 //   const coinFlip = Math.floor(Math.random() * 1);
 //   if (coinFlip === 0) {
-//     char1.attack(char2);
+//     char1.attack(compChar);
 //     console.log(dmg);
-//     console.log(char2.hp);
-//     return char2.hp;
+//     console.log(compChar.hp);
+//     return compChar.hp;
 //   }
-//   char2.attack(char1);
+//   compChar.attack(char1);
 //   console.log(dmg);
 //   console.log(char1.hp);
 //   return char1.hp;
 // }
+// Character.prototype.isAlive = function() {
+//   if (this.hp > 0) {
+//     return true;
+//   }
+// };
+// function battle() {
+// }
 
-Character.prototype.isAlive = function() {
-  if (this.hp > 0) {
-    return true;
-  }
-};
-
+console.log(chooseCharact(warrior));
 // module.exports = {};
