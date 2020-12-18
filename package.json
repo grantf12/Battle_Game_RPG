@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "eslint-plugin-prettier": "^3.3.0",
+    
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
@@ -27,6 +27,7 @@
   "devDependencies": {
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^3.3.0",
     "lint": "^0.7.0",
     "nodemon": "^2.0.6"
   }
