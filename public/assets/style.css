@@ -10,8 +10,33 @@ h1 {
   font-size: 4rem;
 }
 
+#welcome-header {
+  font-family: ccmonstermash,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 h2 {
   font-size: 1.5rem;
+}
+
+#welcome-link-1 {font-size: 1.5rem;
+  padding-right: 1rem;
+  text-decoration: none;
+  color: black;
+  font-family: p22-muschamp-pro,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  transition
+}
+
+#welcome-link-2 {font-size: 1.5rem;
+  padding-left: 1rem;
+  text-decoration: none;
+  color: black;
+  font-family: p22-muschamp-pro,sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #navbar {
