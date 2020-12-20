@@ -2,23 +2,112 @@ html {
   font-family: ccmonstermash, sans-serif;
   font-weight: 400;
   font-style: normal;
+  background-color: black;
+  color: white;
 }
 
 p {
 font-family: Josefin Sans;
-font-size: 1rem;
+font-size: .75rem;
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 
-.span {
-  font-size: 1.2rem;
+#message-board-header {
+  font-size: 2.5rem;
+}
+
+/* The container */
+.container {
+  display: block;
+  position: right;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font-size: .75rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: right;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: right;
+  top: 0;
+  left: 0;
+  height: 12%;
+  width: 33%;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+     top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}.span {
+  font-size: 1rem;
+  font-weight: 200;
+}
+
+#stat-1{
+  color: #04BFBF;
+}
+
+#stat-2 {
+  color: #F20587;
+}
+
+#stat-3 {
+  color: #D98E04;
+}
+
+#stat-4 {
+  color: #6732D9;
+}
+
+#stat-5 {
+  color: #07732D;
 }
 
 #submit-character-selection {
@@ -27,13 +116,15 @@ h2 {
   font-family: ccmonstermash, sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.25rem;
+  font-size: 1rem;
   border-style: none;
   transition-duration: .15s;
+  background-color: black;
+  color: white;
 }
 
 #submit-character-selection:hover {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 
 
@@ -115,7 +206,7 @@ li a:hover {
   margin: 1rem;
   padding: 1rem;
   line-height: 2rem;
-  border: black;
+  border: white;
   border-style: solid;
 }
 
@@ -126,7 +217,7 @@ li a:hover {
   margin: 1rem;
   padding: 1rem;
   line-height: 2rem;
-  border: black;
+  border: white;
   border-style: solid;
 }
   
@@ -139,10 +230,20 @@ button {
   font-size: 1.25rem;
   border-style: none;
   transition-duration: .15s;
+  background-color: black;
+  color: white;
 }
 
 button:hover {
   font-size: 1.75rem;
+}
+
+#attack-1-button {
+    color: #04BFBF;
+}
+
+#attack-2-button {
+    color: #F20587;
 }
   
 .label {
@@ -155,6 +256,8 @@ button:hover {
   font-family: itc-benguiat,serif;
   font-weight: 500;
   font-style: normal;
+  background-color: black;
+  color: white;
 }
 
 #game-over-modal {
@@ -166,7 +269,7 @@ button:hover {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: black;
+  background-color: white;
 }
 
 #modal-content {
@@ -185,7 +288,7 @@ button:hover {
 
 #close:hover,
 #close:focus {
-  color: black;
+  color: white;
   text-decoration: none;
   cursor: pointer;
 }

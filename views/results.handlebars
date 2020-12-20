@@ -1,13 +1,17 @@
-<ul id="navbar">
-    <li><a href="/home" class="nav-links">Home</a></li>
-    <li><a href="#" class="nav-links">About Us</a></li>
-    <li><a href="#" class="nav-links">Logout</a></li>
-</ul>
-
-<div id="results-container">
-    <h1>Results</h1>
-    <h2>Ranking: {{rank}}</h2>
-    <h2>Total Wins: {{total-wins}}</h2>
-    <h2>Total Losses: {{total-losses}}</h2>
-    <button id="battle-button">Battle Again</button>
+<div id="signup-container">
+    <h1 id="signup-header">Signup Form</h1>
+    <form>
+        <div id="username-signup">
+            <label class="label" for="username">Username</label>
+            <input type="username" class="input" placeholder="Username">
+        </div>
+        <br>
+        <div id="password-signup">
+            <label class="label" for="password">Password</label>
+            <input type="password" class="input" placeholder="Password">
+        </div>
+        <br>
+        <button type="submit" id="submit-signup">Sign Up</button>
+    </form>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

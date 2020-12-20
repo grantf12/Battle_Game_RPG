@@ -1,27 +1,24 @@
 <ul id="navbar">
-    <li><a href="/home" class="nav-links">Home</a></li>
-    <li><a href="#" class="nav-links">About Us</a></li>
-    <li><a href="#" class="nav-links">Logout</a></li>
+    <li><a href="?" class="nav-links">Home</a></li>
+    <li><a href="?" class="nav-links">About Us</a></li>
+    <li><a href="?" class="nav-links">Logout</a></li>
 </ul>
-
 <div id="character-select-container">
     <h1>Select Your Character</h1>
     <form action="Where is this data going to be sent to?">
-        <label for="characters">Characters</label>
-        <select name="characters" id="characters">
-            <option value="?">Grant</option>
-            <option value="?">Will</option>
-            <option value="?">Baker</option>
-            <option value="?">Hank</option>
-        </select>
+        <button type="submit">Character 1</button>
+        <button type="submit">Character 2</button>
+        <button type="submit">Character 3</button>
+        <button type="submit">Character 4</button>
+        <button type="submit">Character 5</button>
     </form>
     <br>
-    <h2>Statistic #1: {{statistic-1}}</h2>
-    <h2>Statistic #2: {{statistic-2}}</h2>
-    <h2>Statistic #3: {{statistic-3}}</h2>
-    <h2>Statistic #4: {{statistic-4}}</h2>
+    <h2>Attack!: <span class="span" id="stat-1">{{statistic-1}}</span></h2>
+    <h2>Magical Attack!: <span class="span" id="stat-2">{{statistic-2}}</span></h2>
+    <h2>Defense!: <span class="span" id="stat-3">{{statistic-3}}</span></h2>
+    <h2>Magical Defense!: <span class="span" id="stat-4">{{statistic-4}}</span></h2>
+    <h2>Health!: <span class="span" id="stat-5">{{statistic-4}}</span></h2>
     <input type="submit" id="submit-character-selection" value="Begin Battle">
 </div>
-<link rel="stylesheet" type="text/css" href="assets/style.css" media="screen">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/character-select.js"></script>
