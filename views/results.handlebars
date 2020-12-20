@@ -1,17 +1,13 @@
-<div id="signup-container">
-    <h1 id="signup-header">Signup Form</h1>
-    <form>
-        <div id="username-signup">
-            <label class="label" for="username">Username</label>
-            <input type="username" class="input" placeholder="Username">
-        </div>
-        <br>
-        <div id="password-signup">
-            <label class="label" for="password">Password</label>
-            <input type="password" class="input" placeholder="Password">
-        </div>
-        <br>
-        <button type="submit" id="submit-signup">Sign Up</button>
-    </form>
+<ul id="navbar">
+    <li><a href="?" class="nav-links">Home</a></li>
+    <li><a href="?" class="nav-links">About Us</a></li>
+    <li><a href="?" class="nav-links">Logout</a></li>
+</ul>
+<div id="results-container">
+    <h1>Results</h1>
+    <h2>Ranking: <span class="span">{{rank}}</span></h2>
+    <h2>Total Wins: <span class="span">{{total-wins}}</span></h2>
+    <h2>Total Losses: <span class="span">{{total-losses}}</span></h2>
+    <button id="battle-button">Battle Again</button>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
