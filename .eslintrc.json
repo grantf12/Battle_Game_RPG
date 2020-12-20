@@ -27,7 +27,6 @@
     "no-multi-spaces": "error",
     "no-unreachable": "error",
     "no-var": "error",
-    "prefer-arrow-callback": "error",
     "prettier/prettier": "error",
     "quotes": ["error", "double"],
     "semi": ["error", "always"],

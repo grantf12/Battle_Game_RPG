@@ -21,10 +21,12 @@ module.exports = function(app) {
         res.status(401).json(err);
       });
   });
+
   // app.get("/logout", (req, res) => {
   //   req.logout();
   //   res.redirect("/");
   // });
+
   app.get("/api/user_data", (req, res) => {
     if (!req.user) {
       res.json({});
@@ -32,6 +34,32 @@ module.exports = function(app) {
       res.json({
         email: req.user.email,
         if: req.user.id
+      });
+    }
+  });
+
+  app.get("/character-select", function(req, res) {
+    res.render("character-select", {
+      health: results.hp,
+      attack: results.atk,
+      defense: results.def,
+      magAttack: results.magAtk,
+      magDefense: results.magDef
+    });
+  });
+
+  app.get("/api/characters/:name?", (req, res) => {
+    if (req.params.name) {
+      db.Character.findOne({
+        where: {
+          name: req.params.name
+        }
+      }).then(function(dbName) {
+        return res.json(dbName);
+      });
+    } else {
+      db.Character.findAll().then(function(data) {
+        return res.json(data);
       });
     }
   });
