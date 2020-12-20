@@ -101,3 +101,25 @@ module.exports = function(sequelize, DataTypes) {
   };
   return Character;
 };
+
+function turn() {
+  let coinFlip = Math.floor(Math.random() * 2);
+  if (coinFlip === 0) {
+    char1.attack(compChar);
+    console.log(dmg);
+    console.log(compChar.hp);
+    if (compChar.hp === 0) {
+      endGame();
+    }
+    return compChar.hp;
+  }
+  compChar.attack(char1);
+  console.log(dmg);
+  console.log(char1.hp);
+  if (char1.hp === 0) {
+    endGame();
+  }
+  return char1.hp;
+}
+
+turn();
