@@ -31,7 +31,6 @@
     "prettier/prettier": "error",
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
-    "vars-on-top": "warn",
     "yoda": "error"
   }
 }
