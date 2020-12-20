@@ -1,21 +1,20 @@
 <ul id="navbar">
-    <li><a href="/home" class="nav-links">Home</a></li>
-    <li><a href="#" class="nav-links">About Us</a></li>
-    <li><a href="#" class="nav-links">Logout</a></li>
+    <li><a href="?">Home</a></li>
+    <li><a href="?">About Us</a></li>
+    <li><a href="?">Logout</a></li>
 </ul>
-
 <div id="battle-container">
     <h1>Battle</h1>
     <div id="mb-health-container">
         <div id="message-board">
-            <h2>
+            <h2 id="message-board-header">
                 Message Board
             </h2>
+            <p>{{result-round-i}}</p>
         </div>
         <div id="health">
-            <h2>
-                Health
-            </h2>
+            <h2>My Health = <span class="span">{{my-health}}</span></h2>
+            <h2>Foe's Health = <span class="span">{{foe-health}}</span></h2>
         </div>
     </div>
     <br>
@@ -34,5 +33,4 @@
             proksimumeco, peto kaŭze respondvorto de esk. Cit us viro landonomo, hav dz deci hodiaŭa solinfano.</p>
     </div>
 </div>
-
-</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

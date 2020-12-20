@@ -1,34 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" type="text/css" href="assets/style.css" media="screen">
-</head>
-
-<body>
-    <div id="login-container">
-        <h1>Login Form</h1>
-        <form>
-            <div id="email-login">
-                <label for="email">Email Address</label>
-                <input type="email" id="email-input" placeholder="Email">
-            </div>
-            <br>
-            <div id="password">
-                <label for="password">Password</label>
-                <input type="password" id="password-input" placeholder="Password">
-            </div>
-            <br>
-            <button type="submit" id="submit-login"><a href="/home">Login</a></button>
-        </form>
-        <p>Or sign up <a href="/">here</a></p>
-    </div>
+<div id="login-container">
+    <h1 id="login-header">Login Form</h1>
+    <form>
+        <div id="username-login">
+            <label class="label" for="username">Username</label>
+            <input type="username" class="input" placeholder="Enter username here!">
+        </div>
+        <br>
+        <div id="password-signup">
+            <label class="label" for="password">Password</label>
+            <input type="password" class="input" placeholder="Enter password here!">
+        </div>
+        <br>
+        <button type="submit" id="submit-login">Sign Up</button>
+    </form>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
-</body>
-
-</html>
-
