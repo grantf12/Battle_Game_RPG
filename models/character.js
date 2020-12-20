@@ -97,7 +97,6 @@ module.exports = function(sequelize, DataTypes) {
           }
         }
     }
-    enemy.isAlive();
   };
   return Character;
 };
