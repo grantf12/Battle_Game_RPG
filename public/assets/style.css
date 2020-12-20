@@ -10,8 +10,32 @@ h1 {
   font-size: 4rem;
 }
 
+#welcome-header {
+  font-family: ccmonstermash,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 h2 {
   font-size: 1.5rem;
+}
+
+#welcome-link-1 {font-size: 1.5rem;
+  padding-right: 1rem;
+  text-decoration: none;
+  color: black;
+  font-family: p22-muschamp-pro,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#welcome-link-2 {font-size: 1.5rem;
+  padding-left: 1rem;
+  text-decoration: none;
+  color: black;
+  font-family: p22-muschamp-pro,sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #navbar {
@@ -66,6 +90,11 @@ li a:hover {
   padding: 5%;
 }
 
+#character-select-container {
+  text-align: center;
+  padding: 5%;
+}
+
 #battle-container {
   text-align: center;
   align-items: center;
@@ -75,6 +104,11 @@ li a:hover {
 #mb-health-container {
   display: inline-flex;
   flex-direction: row;
+}
+
+#results-container {
+  text-align: center;
+  padding: 5%;
 }
 
 #message-board {
@@ -165,6 +199,19 @@ button {
   border-color: white;
 }
 
+#submit-character-selection {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+#submit-character-selection:hover {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+
 #email-input {
   font-family: Josefin Sans;
 
@@ -194,14 +241,14 @@ button {
   width: 80%;
 }
 
-.close {
+#close {
   color: purple;
   float: right;
   font-size: 1.5rem;
 }
 
-.close:hover,
-.close:focus {
+#close:hover,
+#close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
