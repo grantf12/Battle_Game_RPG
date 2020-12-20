@@ -22,4 +22,7 @@ module.exports = function(app) {
   app.get("/battle", (req, res) => {
     res.render("battle");
   });
+  app.get("/character-select", (req, res) => {
+    res.render("character-select");
+  });
 };
