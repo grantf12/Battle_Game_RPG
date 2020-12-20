@@ -1,42 +1,41 @@
 html {
-  font-family: Josefin Sans;
+  font-family: ccmonstermash, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 p {
-  font-size: 1rem;
+font-family: Josefin Sans;
+font-size: 1rem;
 }
 
 h1 {
-  font-size: 4rem;
-}
-
-#welcome-header {
-  font-family: ccmonstermash,sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  font-size: 5rem;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
-#welcome-link-1 {font-size: 1.5rem;
-  padding-right: 1rem;
-  text-decoration: none;
-  color: black;
-  font-family: p22-muschamp-pro,sans-serif;
-  font-weight: 400;
-  font-style: normal;
+.span {
+  font-size: 1.2rem;
 }
 
-#welcome-link-2 {font-size: 1.5rem;
-  padding-left: 1rem;
+#submit-character-selection {
+  text-align: center;
   text-decoration: none;
-  color: black;
-  font-family: p22-muschamp-pro,sans-serif;
+  font-family: ccmonstermash, sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-size: 1.25rem;
+  border-style: none;
+  transition-duration: .15s;
 }
+
+#submit-character-selection:hover {
+  font-size: 1.75rem;
+}
+
 
 #navbar {
   list-style-type: none;
@@ -57,12 +56,11 @@ li a {
   text-align: center;
   padding: 1rem;
   text-decoration: none;
+  transition-duration: .15s;
 }
 
 li a:hover {
-  background-color: white;
-  color: black;
-  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 #welcome-page-container {
@@ -131,94 +129,32 @@ li a:hover {
   border: black;
   border-style: solid;
 }
-
-#attack-1-button {
-  background-color: white;
-  color: black;
-  font-weight: bold;
-}
-
-#attack-1-button:hover {
-  background-color: black;
-  color: white;
-}
-
-#attack-2-button {
-  background-color: white;
-  color: black;
-  font-weight: bold;
-}
-
-#attack-2-button:hover {
-  background-color: black;
-  color: white;
-}
-
+  
 button {
   text-align: center;
   text-decoration: none;
-  font-family: Josefin Sans;
+  font-family: ccmonstermash, sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: 1.25rem;
-  border-style: solid;
-  border-color: black;
+  border-style: none;
+  transition-duration: .15s;
 }
 
-#submit-signup {
-  background-color: white;
-  color: black;
-  font-weight: bold;
+button:hover {
+  font-size: 1.75rem;
 }
-
-#submit-signup:hover {
-  background-color: black;
-  color: white;
-  border-color: white;
+  
+.label {
+  font-family: ccmonstermash, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2rem;
 }
-
-#submit-login {
-  background-color: white;
-  color: black;
-  font-weight: bold;
-}
-
-#submit-login:hover {
-  background-color: black;
-  color: white;
-  border-color: white;
-}
-
-#battle-button {
-  background-color: white;
-  color: black;
-  font-weight: bold;
-}
-
-#battle-button:hover {
-  background-color: black;
-  color: white;
-  border-color: white;
-}
-
-#submit-character-selection {
-  background-color: white;
-  color: black;
-  font-weight: bold;
-  font-size: 1.25rem;
-}
-
-#submit-character-selection:hover {
-  background-color: black;
-  color: white;
-  border-color: white;
-}
-
-#email-input {
-  font-family: Josefin Sans;
-
-}
-
-#password-input {
-  font-family: Josefin Sans;
+.input {
+  font-family: itc-benguiat,serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 #game-over-modal {
