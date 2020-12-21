@@ -73,5 +73,5 @@ module.exports = function(app, selectedCharacter) {
     });
   });
 
-  app.get("/api/character-select/:name", (req, res) => {});
+  // app.get("/api/character-select/:name", (req, res) => {});
 };
