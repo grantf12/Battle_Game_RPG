@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
 const db = require("./models");
+let charOne = [];
 
 function chooseCharact(charact) {
-  const char1 = db.Character.build({
+  const charOne = db.Character.create({
     name: charact.name,
     hp: charact.hp,
     atk: charact.atk,
@@ -10,10 +11,9 @@ function chooseCharact(charact) {
     magAtk: charact.magAtk,
     magDef: charact.magDef
   });
-  return char1;
 }
 chooseCharact(warrior);
-console.log(char1.json());
+console.log(charOne);
 
 //on button click, run coin flip to determine which character moves first.
 //then run a.attack(b) and check isAlive();

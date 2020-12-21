@@ -20,8 +20,9 @@ const jack = new Character("Jack", 100, 100, 100, 100, 100);
 const charArray = [warrior, mage, tank, cannon, wall, jack];
 
 db.Character.sync();
-
-db.Character.bulkCreate(charArray).then(results => {
-  console.log(results);
-  process.exit();
+db.Character.destroy({ force: true, where: {} }).then(() => {
+  db.Character.bulkCreate(charArray).then(results => {
+    console.log(results);
+    process.exit();
+  });
 });

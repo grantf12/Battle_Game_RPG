@@ -1,4 +1,5 @@
 //const isAuthenticated = require("../config/middleware/isAuthenticated");
+const db = require("../models");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
@@ -23,6 +24,9 @@ module.exports = function(app) {
     res.render("battle");
   });
   app.get("/character-select", (req, res) => {
-    res.render("character-select");
+    db.Character.findAll({}).then(result => {
+      const characters = JSON.parse(JSON.stringify(result));
+      res.render("character-select", { characters });
+    });
   });
 };
