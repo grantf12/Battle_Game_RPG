@@ -47,7 +47,6 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Character.prototype.attack = function(enemy, atkType) {
-    // let atkType = document.getElementById("#atkType");
     function modifierRoll() {
       const randNum = Math.floor(Math.random() * 11);
       if (randNum === 0 || randNum === 1) {
@@ -59,7 +58,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
     switch (atkType) {
-      case physAtk:
+      case "physAtk":
         modifierRoll();
         const dmgOutput1 =
           ((this.physAtkDmg * this.atk) / enemy.def / 5 + 2) * modifier;
@@ -74,7 +73,7 @@ module.exports = function(sequelize, DataTypes) {
           console.log(`${this.name} Missed!`);
         }
         break;
-      case magAtk:
+      case "magAtk":
         modifierRoll();
         const dmgOutput2 =
           ((this.magAtkDmg * this.magAtk) / enemy.magDef / 5 + 2) * modifier;

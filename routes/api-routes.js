@@ -1,5 +1,4 @@
 const db = require("../models");
-const { Op } = require("sequelize");
 const passport = require("../config/passport");
 
 module.exports = function(app, selectedCharacter) {
@@ -22,10 +21,12 @@ module.exports = function(app, selectedCharacter) {
         res.status(401).json(err);
       });
   });
+
   // app.get("/logout", (req, res) => {
   //   req.logout();
   //   res.redirect("/");
   // });
+
   app.get("/api/user_data", (req, res) => {
     if (!req.user) {
       res.json({});
@@ -36,8 +37,42 @@ module.exports = function(app, selectedCharacter) {
       });
     }
   });
+
+  app.get("/api/characters/:name?", (req, res) => {
+    if (req.params.name) {
+      db.Character.findOne({
+        where: {
+          name: req.params.name
+        }
+      }).then(function(dbName) {
+        res.json(dbName);
+      });
+    } else {
+      db.Character.findAll().then(function(data) {
+        return res.json(data);
+      });
+    }
+  });
+
+  app.get("/api/characters/:name?", (req, res) => {
+    if (req.params.name) {
+      db.Character.findOne({
+        where: {
+          name: req.params.name
+        }
+      }).then(function(dbName) {
+        res.json(dbName);
+      });
+    } else {
+      db.Character.findAll().then(function(data) {
+        return res.json(data);
+      });
+    }
+  });
+
   app.post("/api/select/character/:name", (req, res) => {
-    db.Character.findOne({ where: { name: req.params.name } }).then(playable => {
+    db.Character.findOne({ where: { name: req.params.name } }).then(
+      playable => {
         db.Character.findAll({
           where: { [Op.not]: [{ name: req.params.name }] }
         }).then(restOfCharacters => {
