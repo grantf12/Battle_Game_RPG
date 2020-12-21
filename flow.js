@@ -9,23 +9,23 @@
 function turn(atkType) {
   let coinFlip = Math.floor(Math.random() * 2);
   if (coinFlip === 0) {
-    char1.attack(compChar, atkType);
+    selectedCharacter[0].attack(compChar, atkType);
     //display the messages set to console.log in the atk function in the message space.
     if (compChar.hp === 0) {
       endGame();
     }
-    compChar.attack(char1, atkType);
+    compChar.attack(selectedCharacter[0], atkType);
     //display the messages set to console.log in the atk function in the message space.
-    if (char1.hp === 0) {
+    if (selectedCharacter[0].hp === 0) {
       endGame();
     }
   } else {
-    compChar.attack(char1, atkType);
+    compChar.attack(selectedCharacter[0], atkType);
     //display the messages set to console.log in the atk function in the message space.
-    if (char1.hp === 0) {
+    if (selectedCharacter[0].hp === 0) {
       endGame();
     }
-    char1.attack(compChar, atkType);
+    selectedCharacter[0].attack(compChar, atkType);
     //display the messages set to console.log in the atk function in the message space.
     if (compChar.hp === 0) {
       endGame();
@@ -33,6 +33,8 @@ function turn(atkType) {
   }
   return;
 }
+
+
 
 function endGame() {
   User.score += 1;
