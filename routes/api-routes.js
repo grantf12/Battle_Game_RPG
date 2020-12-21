@@ -54,10 +54,36 @@ module.exports = function(app, selectedCharacter) {
     }
   });
 
-  app.post("/api/select/character/:id", (req, res) => {
-    db.Character.findOne({ where: { id: req.params.id } }).then(result => {
-      selectedCharacter[0] = result;
-      console.log(selectedCharacter);
-    });
+  app.get("/api/characters/:name?", (req, res) => {
+    if (req.params.name) {
+      db.Character.findOne({
+        where: {
+          name: req.params.name
+        }
+      }).then(function(dbName) {
+        res.json(dbName);
+      });
+    } else {
+      db.Character.findAll().then(function(data) {
+        return res.json(data);
+      });
+    }
+  });
+
+  app.post("/api/select/character/:name", (req, res) => {
+    db.Character.findOne({ where: { name: req.params.name } }).then(
+      playable => {
+        db.Character.findAll({
+          where: { [Op.not]: [{ name: req.params.name }] }
+        }).then(restOfCharacters => {
+          selectedCharacter[0] = playable;
+          selectedCharacter[1] =
+            restOfCharacters[
+              Math.floor(Math.random() * restOfCharacters.length)
+            ];
+          console.log(selectedCharacter);
+        });
+      }
+    );
   });
 };
