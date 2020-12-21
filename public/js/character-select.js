@@ -24,7 +24,7 @@ $(document).ready(() => {
   $("#submit-character-selection").click(function() {
     const characterId = $(this).attr("data-id");
     $.post("/api/character-select/" + characterId).then(res => {
-      console.log(res)
+      console.log(res);
       window.location.href = "/battle";
     });
   });
