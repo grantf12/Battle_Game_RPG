@@ -5,7 +5,7 @@
 //if alive, run b.attack(a) and check isAlive();
 //if both are alive, end the fuction to wait for next button click;
 //if one is dead, display appropriate end message (i.e. You Win or You Lose);
-$(document).ready() {
+
   function turn(atkType) {
     console.log("Kachow");
     let coinFlip = Math.floor(Math.random() * 2);
@@ -34,8 +34,8 @@ $(document).ready() {
     }
     return;
   }
-  $("#physical-button").on("click", turn(physAtk))
-}
+  $("#physical-button").on("click", turn(physAtk));
+
 
 
 
