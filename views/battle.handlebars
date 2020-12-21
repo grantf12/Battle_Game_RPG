@@ -11,16 +11,16 @@
             <h2 id="message-board-header">
                 Message Board
             </h2>
-            <p>{{result-round-i}}</p>
+            <p id="battle-message"></p>
         </div>
         <div id="health">
-            <h2>My Health = <span id="myHealth" class="span"></span></h2>
-            <h2>Foe's Health = <span id="foeHealth" class="span">{{foe-health}}</span></h2>
+            <h2>My Health = <span id="myHealth" class="span">{{character1.hp}}</span></h2>
+            <h2>Foe's Health = <span id="foeHealth" class="span">{{character2.hp}}</span></h2>
         </div>
     </div>
     <br>
-    <button id="physical-button" onclick=turn("physAtk")>Physical Attack</button>
-    <button id="magical-button" onclick=turn("magAtk")>Magical Attack</button>
+    <button id="physical-button">Physical Attack</button>
+    <button id="magical-button">Magical Attack</button>
 </div>
 
 <div id="game-over-modal">
@@ -35,5 +35,34 @@
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/battle.js"></script>
-<script src="../flow.js"></script>
+<script >
+  function turn(atkType) {
+    console.log("Kachow");
+    let coinFlip = Math.floor(Math.random() * 2);
+    if (coinFlip === 0) {
+      character1.attack(character2, atkType);
+      //display the messages set to console.log in the atk function in the message space.
+      if (character2.hp === 0) {
+        endGame();
+      }
+      character2.attack(character1, atkType);
+      //display the messages set to console.log in the atk function in the message space.
+      if (character1.hp === 0) {
+        endGame();
+      }
+    } else {
+      character2.attack(character1, atkType);
+      //display the messages set to console.log in the atk function in the message space.
+      if (character1.hp === 0) {
+        endGame();
+      }
+      character1.attack(character2, atkType);
+      //display the messages set to console.log in the atk function in the message space.
+      if (character2.hp === 0) {
+        endGame();
+      }
+    }
+    return;
+  }
+  $("#physical-button").on("click", turn("physAtk"))
+</script>
