@@ -66,7 +66,7 @@ module.exports = function(sequelize, DataTypes) {
         if (enemy.hp < 0) {
           enemy.hp = 0;
         }
-        console.log(`
+        $("#battle-message").append(`
       ${this.name} attacked ${enemy} with a Physical Attack for ${dmgOutput1} /n
       `);
         if (dmgOutput2 === 0) {
@@ -80,7 +80,7 @@ module.exports = function(sequelize, DataTypes) {
         enemy.hp -= dmgOutput2;
         if (enemy.hp < 0) {
           enemy.hp = 0;
-          console.log(`
+          $("#battle-message").append(`
         ${this.name} attacked ${enemy} with a Magical Attack for ${dmgOutput2} /n
         `);
           if (dmgOutput2 === 0) {
