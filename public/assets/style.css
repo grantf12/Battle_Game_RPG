@@ -23,6 +23,28 @@ h2 {
   font-size: 2.5rem;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33%;
+  padding: 1rem;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width:600px) {
+  .column {
+      width: 100%;
+  }
+}
+
 /* The container */
 .container {
   display: block;
@@ -184,6 +206,20 @@ li a:hover {
   padding: 5%;
 }
 
+#my-character-stats-container {
+  text-align: center;
+  align-items: center;
+  padding: 5%;
+  width: auto;
+}
+
+#foe-character-stats-container {
+  text-align: center;
+  align-items: center;
+  padding: 5%;
+  width: auto;
+}
+
 #battle-container {
   text-align: center;
   align-items: center;
@@ -207,7 +243,7 @@ li a:hover {
   padding: 1rem;
   line-height: 2rem;
   border: white;
-  border-style: solid;
+  border-style: outset;
 }
 
 #health {
@@ -218,7 +254,7 @@ li a:hover {
   padding: 1rem;
   line-height: 2rem;
   border: white;
-  border-style: solid;
+  border-style: outset;
 }
   
 button {
