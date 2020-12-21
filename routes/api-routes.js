@@ -4,14 +4,14 @@ const passport = require("../config/passport");
 module.exports = function(app, selectedCharacter) {
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     res.json({
-      email: req.user.email,
+      username: req.user.username,
       id: req.user.id
     });
   });
 
   app.post("/api/signup", (req, res) => {
     db.User.create({
-      email: req.body.email,
+      username: req.body.username,
       password: req.body.password
     })
       .then(() => {
@@ -30,7 +30,7 @@ module.exports = function(app, selectedCharacter) {
       res.json({});
     } else {
       res.json({
-        email: req.user.email,
+        username: req.user.username,
         if: req.user.id
       });
     }
