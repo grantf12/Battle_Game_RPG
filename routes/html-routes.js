@@ -23,6 +23,7 @@ module.exports = function(app) {
   app.get("/battle", (req, res) => {
     res.render("battle");
   });
+
   app.get("/character-select", (req, res) => {
     db.Character.findAll({}).then(result => {
       const characters = JSON.parse(JSON.stringify(result));
