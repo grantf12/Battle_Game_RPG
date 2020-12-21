@@ -1,17 +1,18 @@
 <div id="signup-container">
     <h1 id="signup-header">Signup Form</h1>
-    <form>
+    <form class="signup">
         <div id="username-signup">
             <label class="label" for="username">Username</label>
-            <input type="username" class="input" placeholder="Username">
+            <input id="email-input" type="username" class="input" placeholder="Username">
         </div>
         <br>
         <div id="password-signup">
             <label class="label" for="password">Password</label>
-            <input type="password" class="input" placeholder="Password">
+            <input id="password-input" type="password" class="input" placeholder="Password">
         </div>
         <br>
         <button type="submit" id="submit-signup">Sign Up</button>
+        <p>If you're already signed up you can login <a href="/login">here</a></p>
     </form>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
