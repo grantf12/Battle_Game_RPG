@@ -5,11 +5,9 @@
 </ul>
 <div id="character-select-container">
     <h1>Select Your Character</h1>
-        <button type="submit" id="character-1" onclick=selected("warrior")>Character 1</button>
-        <button type="submit" id="character-2">Character 2</button>
-        <button type="submit" id="character-3">Character 3</button>
-        <button type="submit" id="character-4">Character 4</button>
-        <button type="submit" id="character-5">Character 5</button>
+        {{#each characters}}
+        <button id="{{id}}">{{name}}</button>
+        {{/each}}
     <br>
     <h2>Attack!: <span class="span" id="stat-1"></span></h2>
     <h2>Magical Attack!: <span class="span" id="stat-2">{{magAttack}}</span></h2>

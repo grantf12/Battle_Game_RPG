@@ -1,7 +1,7 @@
 const db = require("../models");
 const passport = require("../config/passport");
 
-module.exports = function(app) {
+module.exports = function(app, selectedCharacter) {
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     res.json({
       email: req.user.email,
@@ -55,5 +55,10 @@ module.exports = function(app) {
         return res.json(data);
       });
     }
+  app.post("/api/select/character/:id", (req, res) => {
+    db.Character.findOne({ where: { id: req.params.id } }).then(result => {
+      selectedCharacter[0] = result;
+      console.log(selectedCharacter);
+    });
   });
 };
