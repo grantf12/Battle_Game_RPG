@@ -6,7 +6,7 @@
 <div id="character-select-container">
     <h1>Select Your Character</h1>
         {{#each characters}}
-        <button id="{{id}}">{{name}}</button>
+        <button onclick=selected("{{name}}") id="{{id}}">{{name}}</button>
         {{/each}}
     <br>
     <h2>Attack!: <span class="span" id="stat-1"></span></h2>

@@ -25,14 +25,9 @@ module.exports = function(app) {
   });
 
   app.get("/character-select", (req, res) => {
-<<<<<<< HEAD
-    console.log("HTML-Routes");
-    res.render("character-select");
-=======
     db.Character.findAll({}).then(result => {
       const characters = JSON.parse(JSON.stringify(result));
       res.render("character-select", { characters });
     });
->>>>>>> a2c9cee4fa6ff77e2f506fbd619f8b2eea6a4110
   });
 };
