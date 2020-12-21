@@ -1,5 +1,6 @@
 const db = require("../models");
 const passport = require("../config/passport");
+const Op = require("sequelize");
 
 module.exports = function(app, selectedCharacter) {
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
@@ -54,11 +55,23 @@ module.exports = function(app, selectedCharacter) {
     }
   });
 
-  app.post("/api/select/character/:id", (req, res) => {
-    db.Character.findOne({ where: { id: req.params.id } }).then(result => {
-      selectedCharacter[0] = result;
-      console.log("Results: " + result);
-      console.log("selectedCharacter: " + selectedCharacter);
+  app.post("/api/character-select/:id", (req, res) => {
+    console.log("selecting character");
+    db.Character.findByPk(req.params.id).then(playable => {
+      db.Character.findAll({}).then(restOfCharacters => {
+        restOfCharacters = JSON.parse(JSON.stringify(restOfCharacters));
+        const filteredList = restOfCharacters.filter(
+          character => character.id !== parseInt(req.params.id)
+        );
+        selectedCharacter[0] = JSON.parse(JSON.stringify(playable));
+        selectedCharacter[1] =
+          filteredList[Math.floor(Math.random() * filteredList.length)];
+        // console.log(selectedCharacter[0]);
+        console.log(selectedCharacter[1], "**********");
+        res.sendStatus(200);
+      });
     });
   });
+
+  // app.get("/api/character-select/:name", (req, res) => {});
 };

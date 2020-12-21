@@ -16,12 +16,16 @@ function selected(who) {
     characterDef.text(results.def);
     characterMagDef.text(results.magDef);
     characterHealth.text(results.hp);
-    selectedCharacter[0] = results;
+    $("#submit-character-selection").attr("data-id", results.id);
   });
 }
 
 $(document).ready(() => {
-  $("#submit-character-selection").click(() => {
-    window.location.href = "/battle";
+  $("#submit-character-selection").click(function() {
+    const characterId = $(this).attr("data-id");
+    $.post("/api/character-select/" + characterId).then(res => {
+      console.log(res)
+      window.location.href = "/battle";
+    });
   });
 });
