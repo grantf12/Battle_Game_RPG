@@ -3,6 +3,7 @@
     <li><a href="?">About Us</a></li>
     <li><a href="?">Logout</a></li>
 </ul>
+{{character1.name}}
 <div id="battle-container">
     <h1>Battle</h1>
     <div id="mb-health-container">
@@ -13,13 +14,13 @@
             <p>{{result-round-i}}</p>
         </div>
         <div id="health">
-            <h2>My Health = <span class="span">{{my-health}}</span></h2>
-            <h2>Foe's Health = <span class="span">{{foe-health}}</span></h2>
+            <h2>My Health = <span id="myHealth" class="span"></span></h2>
+            <h2>Foe's Health = <span id="foeHealth" class="span">{{foe-health}}</span></h2>
         </div>
     </div>
     <br>
-    <button id="attack-1-button">Attack #1</button>
-    <button id="attack-2-button">Attack #2</button>
+    <button id="physical-button" onclick=turn("physAtk")>Physical Attack</button>
+    <button id="magical-button" onclick=turn("magAtk")>Magical Attack</button>
 </div>
 
 <div id="game-over-modal">
@@ -35,3 +36,4 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/battle.js"></script>
+<script src="../flow.js"></script>
