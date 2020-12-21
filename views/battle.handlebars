@@ -46,7 +46,11 @@
       <h3>Defense! <span class="span" id="stat-3">{{character2.def}}</span></h3>
       <h3>Magical Defense! <span class="span" id="stat-4">{{character2.magDef}}</span></h3>
     </div>
-  </div>
+
+    <br>
+    <button id="physical-button" class = "attack" data-type="physAtk">Physical Attack</button>
+    <button id="magical-button" class = "attack" data-type="magAtk">Magical Attack</button>
+
 </div>
 
 
@@ -62,7 +66,10 @@
   </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
+
+
+{{!-- <script >
+
   function turn(atkType) {
     console.log("Kachow");
     let coinFlip = Math.floor(Math.random() * 2);
@@ -91,5 +98,8 @@
     }
     return;
   }
-  $("#physical-button").on("click", turn("physAtk"))
-</script>
+
+  $("#physical-button").on("click", function(){turn("physAtk")})
+</script> --}}
+<script src="/js/battle.js"></script>
+
