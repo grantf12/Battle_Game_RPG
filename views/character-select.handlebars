@@ -6,14 +6,14 @@
 <div id="character-select-container">
     <h1>Select Your Character</h1>
         {{#each characters}}
-        <button id="{{id}}">{{name}}</button>
+        <button onclick=selected("{{name}}") id="{{id}}">{{name}}</button>
         {{/each}}
     <br>
-    <h2>Attack!: <span class="span" id="stat-1">{{statistic-1}}</span></h2>
-    <h2>Magical Attack!: <span class="span" id="stat-2">{{statistic-2}}</span></h2>
-    <h2>Defense!: <span class="span" id="stat-3">{{statistic-3}}</span></h2>
-    <h2>Magical Defense!: <span class="span" id="stat-4">{{statistic-4}}</span></h2>
-    <h2>Health!: <span class="span" id="stat-5">{{statistic-4}}</span></h2>
+    <h2>Attack!: <span class="span" id="stat-1"></span></h2>
+    <h2>Magical Attack!: <span class="span" id="stat-2"></span></h2>
+    <h2>Defense!: <span class="span" id="stat-3"></span></h2>
+    <h2>Magical Defense!: <span class="span" id="stat-4"></span></h2>
+    <h2>Health!: <span class="span" id="stat-5"></span></h2>
     <input type="submit" id="submit-character-selection" value="Begin Battle">
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
