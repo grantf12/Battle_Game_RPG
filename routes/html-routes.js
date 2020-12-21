@@ -1,7 +1,7 @@
 //const isAuthenticated = require("../config/middleware/isAuthenticated");
 const db = require("../models");
 
-module.exports = function(app) {
+module.exports = function(app, selectedCharacter) {
   app.get("/", (req, res) => {
     if (req.user) {
       res.redirect("/home");
@@ -21,7 +21,11 @@ module.exports = function(app) {
   });
 
   app.get("/battle", (req, res) => {
-    res.render("battle");
+    console.log(selectedCharacter, "<===");
+    res.render("battle", {
+      character1: selectedCharacter[0],
+      character2: selectedCharacter[1]
+    });
   });
 
   app.get("/character-select", (req, res) => {
