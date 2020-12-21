@@ -57,7 +57,8 @@ module.exports = function(app, selectedCharacter) {
   app.post("/api/select/character/:id", (req, res) => {
     db.Character.findOne({ where: { id: req.params.id } }).then(result => {
       selectedCharacter[0] = result;
-      console.log(selectedCharacter);
+      console.log("Results: " + result);
+      console.log("selectedCharacter: " + selectedCharacter);
     });
   });
 };

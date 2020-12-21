@@ -16,6 +16,7 @@ function selected(who) {
     characterDef.text(results.def);
     characterMagDef.text(results.magDef);
     characterHealth.text(results.hp);
+    selectedCharacter[0] = results;
   });
 }
 
