@@ -45,9 +45,6 @@ module.exports = function(app, selectedCharacter) {
           name: req.params.name
         }
       }).then(function(dbName) {
-        res.json({
-          health: dbName.hp
-        });
         res.json(dbName);
       });
     } else {
