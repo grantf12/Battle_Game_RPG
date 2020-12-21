@@ -1,4 +1,4 @@
-//const isAuthenticated = require("../config/middleware/isAuthenticated");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 const db = require("../models");
 
 module.exports = function(app, selectedCharacter) {
@@ -16,7 +16,7 @@ module.exports = function(app, selectedCharacter) {
     res.render("login");
   });
 
-  app.get("/home", (req, res) => {
+  app.get("/home", isAuthenticated, (req, res) => {
     res.render("home");
   });
 

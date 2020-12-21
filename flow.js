@@ -6,33 +6,37 @@
 //if both are alive, end the fuction to wait for next button click;
 //if one is dead, display appropriate end message (i.e. You Win or You Lose);
 
-function turn(atkType) {
-  let coinFlip = Math.floor(Math.random() * 2);
-  if (coinFlip === 0) {
-    selectedCharacter[0].attack(compChar, atkType);
-    //display the messages set to console.log in the atk function in the message space.
-    if (compChar.hp === 0) {
-      endGame();
+  function turn(atkType) {
+    console.log("Kachow");
+    let coinFlip = Math.floor(Math.random() * 2);
+    if (coinFlip === 0) {
+      character1.attack(character2, atkType);
+      //display the messages set to console.log in the atk function in the message space.
+      if (character2.hp === 0) {
+        endGame();
+      }
+      character2.attack(character1, atkType);
+      //display the messages set to console.log in the atk function in the message space.
+      if (character1.hp === 0) {
+        endGame();
+      }
+    } else {
+      character2.attack(character1, atkType);
+      //display the messages set to console.log in the atk function in the message space.
+      if (character1.hp === 0) {
+        endGame();
+      }
+      character1.attack(character2, atkType);
+      //display the messages set to console.log in the atk function in the message space.
+      if (character2.hp === 0) {
+        endGame();
+      }
     }
-    compChar.attack(selectedCharacter[0], atkType);
-    //display the messages set to console.log in the atk function in the message space.
-    if (selectedCharacter[0].hp === 0) {
-      endGame();
-    }
-  } else {
-    compChar.attack(selectedCharacter[0], atkType);
-    //display the messages set to console.log in the atk function in the message space.
-    if (selectedCharacter[0].hp === 0) {
-      endGame();
-    }
-    selectedCharacter[0].attack(compChar, atkType);
-    //display the messages set to console.log in the atk function in the message space.
-    if (compChar.hp === 0) {
-      endGame();
-    }
+    return;
   }
-  return;
-}
+  $("#physical-button").on("click", turn(physAtk));
+
+
 
 
 
