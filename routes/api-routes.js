@@ -55,6 +55,8 @@ module.exports = function(app, selectedCharacter) {
         return res.json(data);
       });
     }
+  });
+
   app.post("/api/select/character/:id", (req, res) => {
     db.Character.findOne({ where: { id: req.params.id } }).then(result => {
       selectedCharacter[0] = result;

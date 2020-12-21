@@ -11,8 +11,6 @@ function selected(who) {
   }).then(function(results) {
     console.log("Character-Select");
     console.log(results);
-    $(characterAttack).innerhtml(results.atk);
-    location.reload();
     // $.get("/character-select", function(req, res) {
     //   res.render("character-select", {
     //     health: results.hp,
