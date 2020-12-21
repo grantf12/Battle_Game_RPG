@@ -66,11 +66,11 @@ module.exports = function(sequelize, DataTypes) {
         if (enemy.hp < 0) {
           enemy.hp = 0;
         }
-        $("#battle-message").append(`
-      ${this.name} attacked ${enemy} with a Physical Attack for ${dmgOutput1} /n
-      `);
-        if (dmgOutput2 === 0) {
-          console.log(`${this.name} Missed!`);
+        //   $("#battle-message").append(`
+        // ${this.name} attacked ${enemy} with a Physical Attack for ${dmgOutput1} /n
+        // `);
+        if (dmgOutput1 === 0) {
+          console.log(" Missed!");
         }
         break;
       case "magAtk":
@@ -80,11 +80,11 @@ module.exports = function(sequelize, DataTypes) {
         enemy.hp -= dmgOutput2;
         if (enemy.hp < 0) {
           enemy.hp = 0;
-          $("#battle-message").append(`
-        ${this.name} attacked ${enemy} with a Magical Attack for ${dmgOutput2} /n
-        `);
+          //   $("#battle-message").append(`
+          // ${this.name} attacked ${enemy} with a Magical Attack for ${dmgOutput2} /n
+          // `);
           if (dmgOutput2 === 0) {
-            console.log(`${this.name} Missed!`);
+            // console.log(`${this.name} Missed!`);
           }
           if (enemy.hp < 0) {
             enemy.hp = 0;

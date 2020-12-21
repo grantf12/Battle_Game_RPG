@@ -14,13 +14,13 @@
             <p id="battle-message"></p>
         </div>
         <div id="health">
-            <h2>My Health = <span id="myHealth" class="span">{{character1.hp}}</span></h2>
+            <h2>My Health = <span id="myHealth" class="span" data-characte={{character1}}>{{character1.hp}}</span></h2>
             <h2>Foe's Health = <span id="foeHealth" class="span">{{character2.hp}}</span></h2>
         </div>
     </div>
     <br>
-    <button id="physical-button">Physical Attack</button>
-    <button id="magical-button">Magical Attack</button>
+    <button id="physical-button" class = "attack" data-type="physAtk">Physical Attack</button>
+    <button id="magical-button" class = "attack" data-type="magAtk">Magical Attack</button>
 </div>
 
 <div id="game-over-modal">
@@ -35,7 +35,8 @@
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script >
+
+{{!-- <script >
   function turn(atkType) {
     console.log("Kachow");
     let coinFlip = Math.floor(Math.random() * 2);
@@ -64,5 +65,6 @@
     }
     return;
   }
-  $("#physical-button").on("click", turn("physAtk"))
-</script>
+  $("#physical-button").on("click", function(){turn("physAtk")})
+</script> --}}
+<script src="/js/battle.js"></script>
