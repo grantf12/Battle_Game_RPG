@@ -1,6 +1,7 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const Op = require("sequelize");
+const character = require("../models/character");
 
 module.exports = function(app, selectedCharacter) {
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
@@ -72,6 +73,18 @@ module.exports = function(app, selectedCharacter) {
       });
     });
   });
-
+  app.post("/api/attack", async (req, res) => {
+    console.log("bob");
+    // const test = await selectedCharacter[0].attack(
+    //   selectedCharacter[1],
+    //   req.body.attack
+    // );
+    const enemy = await db.Character.findByPk(selectedCharacter[1].id);
+    db.Character.findByPk(selectedCharacter[0].id).then(character => {
+      const result = character.attack(enemy, req.body.attack);
+      console.log(result, "++++++", selectedCharacter);
+      res.sendStatus(200);
+    });
+  });
   // app.get("/api/character-select/:name", (req, res) => {});
 };
