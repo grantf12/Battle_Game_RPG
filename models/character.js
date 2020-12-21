@@ -62,7 +62,7 @@ module.exports = function(sequelize, DataTypes) {
         modifierRoll();
         const dmgOutput1 =
           ((this.physAtkDmg * this.atk) / enemy.def / 5 + 2) * modifier;
-        enemy.hp -= dmgOutput1;
+        let remainingEnemyHp = enemy.hp - dmgOutput1;
         if (enemy.hp < 0) {
           enemy.hp = 0;
         }
@@ -72,12 +72,12 @@ module.exports = function(sequelize, DataTypes) {
         if (dmgOutput1 === 0) {
           console.log(" Missed!");
         }
-        break;
+        return dmgOutput1, remainingEnemyHp;
       case "magAtk":
         modifierRoll();
         const dmgOutput2 =
           ((this.magAtkDmg * this.magAtk) / enemy.magDef / 5 + 2) * modifier;
-        enemy.hp -= dmgOutput2;
+        let remainingUserHp = this.hp - dmgOutput2;
         if (enemy.hp < 0) {
           enemy.hp = 0;
           //   $("#battle-message").append(`
@@ -90,6 +90,7 @@ module.exports = function(sequelize, DataTypes) {
             enemy.hp = 0;
           }
         }
+        return remainingUserHp, dmgOutput2;
     }
   };
   return Character;
