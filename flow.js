@@ -1,19 +1,4 @@
 /* eslint-disable prettier/prettier */
-const db = require("./models");
-let charOne = [];
-
-function chooseCharact(charact) {
-  const charOne = db.Character.create({
-    name: charact.name,
-    hp: charact.hp,
-    atk: charact.atk,
-    def: charact.def,
-    magAtk: charact.magAtk,
-    magDef: charact.magDef
-  });
-}
-chooseCharact(warrior);
-console.log(charOne);
 
 //on button click, run coin flip to determine which character moves first.
 //then run a.attack(b) and check isAlive();
@@ -21,35 +6,37 @@ console.log(charOne);
 //if both are alive, end the fuction to wait for next button click;
 //if one is dead, display appropriate end message (i.e. You Win or You Lose);
 
-// function turn() {
-//   let coinFlip = Math.floor(Math.random() * 2);
-//   if (coinFlip === 0) {
-//     char1.attack(compChar);
-//     //display the messages set to console.log in the atk function in the message space.
-//     if (compChar.hp === 0) {
-//       endGame();
-//     }
-//     compChar.attack(char1);
-//     //display the messages set to console.log in the atk function in the message space.
-//     if (char1.hp === 0) {
-//       endGame();
-//     }
-//   } else {
-//     compChar.attack(char1);
-//     //display the messages set to console.log in the atk function in the message space.
-//     if (char1.hp === 0) {
-//       endGame();
-//     }
-//     char1.attack(compChar);
-//     //display the messages set to console.log in the atk function in the message space.
-//     if (compChar.hp === 0) {
-//       endGame();
-//     }
-//   }
-//   return;
-// }
+function turn(atkType) {
+  let coinFlip = Math.floor(Math.random() * 2);
+  if (coinFlip === 0) {
+    selectedCharacter[0].attack(compChar, atkType);
+    //display the messages set to console.log in the atk function in the message space.
+    if (compChar.hp === 0) {
+      endGame();
+    }
+    compChar.attack(selectedCharacter[0], atkType);
+    //display the messages set to console.log in the atk function in the message space.
+    if (selectedCharacter[0].hp === 0) {
+      endGame();
+    }
+  } else {
+    compChar.attack(selectedCharacter[0], atkType);
+    //display the messages set to console.log in the atk function in the message space.
+    if (selectedCharacter[0].hp === 0) {
+      endGame();
+    }
+    selectedCharacter[0].attack(compChar, atkType);
+    //display the messages set to console.log in the atk function in the message space.
+    if (compChar.hp === 0) {
+      endGame();
+    }
+  }
+  return;
+}
 
-// function endGame() {
-//   User.score += 1;
-//   //if statement that displays whether you won or lost in the modal text area
-// }
+
+
+function endGame() {
+  User.score += 1;
+  //if statement that displays whether you won or lost in the modal text area
+}
