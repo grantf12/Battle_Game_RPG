@@ -24,6 +24,7 @@ module.exports = function(app) {
   });
 
   app.get("/character-select", (req, res) => {
+    console.log("HTML-Routes");
     res.render("character-select");
   });
 };

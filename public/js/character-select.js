@@ -1,25 +1,29 @@
 // const express = require("express");
 // const router = express.Router();
 // const Character = require("../../models");
-module.exports = function selected(who) {
-  // const characterSelect = $(document.getElementById("#characters").val());
+
+function selected(who) {
+  const characterAttack = $(document.getElementById("#stat-1"));
   const url = "api/characters/" + who;
   $.ajax({
     url: url,
     method: "GET"
   }).then(function(results) {
+    console.log("Character-Select");
     console.log(results);
-    $.get("/character-select", function(req, res) {
-      res.render("character-select", {
-        health: results.hp,
-        attack: results.atk,
-        defense: results.def,
-        magAttack: results.magAtk,
-        magDefense: results.magDef
-      });
-    });
+    $(characterAttack).innerhtml(results.atk);
+    location.reload();
+    // $.get("/character-select", function(req, res) {
+    //   res.render("character-select", {
+    //     health: results.hp,
+    //     attack: results.atk,
+    //     defense: results.def,
+    //     magAttack: results.magAtk,
+    //     magDefense: results.magDef
+    //   });
+    // });
   });
-};
+}
 
 $(document).ready(
   () => {

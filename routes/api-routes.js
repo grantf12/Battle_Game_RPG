@@ -38,16 +38,6 @@ module.exports = function(app) {
     }
   });
 
-  app.get("/character-select", function(req, res) {
-    res.render("character-select", {
-      health: results.hp,
-      attack: results.atk,
-      defense: results.def,
-      magAttack: results.magAtk,
-      magDefense: results.magDef
-    });
-  });
-
   app.get("/api/characters/:name?", (req, res) => {
     if (req.params.name) {
       db.Character.findOne({
@@ -55,7 +45,10 @@ module.exports = function(app) {
           name: req.params.name
         }
       }).then(function(dbName) {
-        return res.json(dbName);
+        res.json({
+          health: dbName.hp
+        });
+        res.json(dbName);
       });
     } else {
       db.Character.findAll().then(function(data) {
