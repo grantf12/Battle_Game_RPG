@@ -1,41 +1,68 @@
 <ul id="navbar">
-    <li><a href="?">Home</a></li>
-    <li><a href="?">About Us</a></li>
-    <li><a href="?">Logout</a></li>
+  <li><a href="?">Home</a></li>
+  <li><a href="?">About Us</a></li>
+  <li><a href="?">Logout</a></li>
 </ul>
-{{character1.name}}
-<div id="battle-container">
-    <h1>Battle</h1>
-    <div id="mb-health-container">
+
+<div class="row">
+  <div class="column">
+    <div id="my-character-stats-container">
+      <h1><span style="color: #07732D;">My Character</span></h1>
+      <h3>Character Name! <span class="span">{{character1.name}}</span></h3>
+      <h3>Attack! <span class="span" id="stat-1">{{character1.atk}}</span> </h3>
+      <h3>Magical Attack! <span class="span" id="stat-2">{{character1.magAtk}}</span></h3>
+      <h3>Defense! <span class="span" id="stat-3">{{character1.def}}</span></h3>
+      <h3>Magical Defense! <span class="span" id="stat-4">{{character1.magDef}}</span></h3>
+    </div>
+  </div>
+  <div class="column">
+    <div id="battle-container">
+      <h1>Battle</h1>
+      <div id="mb-health-container">
         <div id="message-board">
-            <h2 id="message-board-header">
-                Message Board
-            </h2>
-            <p id="battle-message"></p>
+          <h2 id="message-board-header">
+            Message Board
+          </h2>
+          <p>{{result-round-i}}</p>
         </div>
         <div id="health">
-            <h2>My Health = <span id="myHealth" class="span">{{character1.hp}}</span></h2>
-            <h2>Foe's Health = <span id="foeHealth" class="span">{{character2.hp}}</span></h2>
+          <h2><span style="color: #07732D;">My Health:</span><br><span class="span">{{character1.hp}}</span>
+          </h2>
+          <h2><span style="color: #FF0000;">Foe's Health:</span><br><span class="span">{{character2.hp}}</span>
+          </h2>
         </div>
+      </div>
+      <br>
+      <button id="attack-1-button">Attack #1</button>
+      <button id="attack-2-button">Attack #2</button>
     </div>
-    <br>
-    <button id="physical-button">Physical Attack</button>
-    <button id="magical-button">Magical Attack</button>
+  </div>
+  <div class="column">
+    <div id="foe-character-stats-container">
+      <h1><span style="color: #FF0000;">My Foe</span></h1>
+      <h3>Character Name! <span class="span">{{character2.name}}</span></h3>
+      <h3>Attack! <span class="span" id="stat-1">{{character2.atk}}</span> </h3>
+      <h3>Magical Attack! <span class="span" id="stat-2">{{character2.magAtk}}</span></h3>
+      <h3>Defense! <span class="span" id="stat-3">{{character2.def}}</span></h3>
+      <h3>Magical Defense! <span class="span" id="stat-4">{{character2.magDef}}</span></h3>
+    </div>
+  </div>
 </div>
 
+
 <div id="game-over-modal">
-    <div id="modal-content">
-        <span id="close">&times;</span>
-        <h2>Game Over</h2>
-        <h3>You {{result}}.</h3>
-        <p>Helpi nenii responde il pro. Sekve hebrea nul o, be des tria hebrea depost, do nun centi glota
-            senobjekta. Ar
-            sube kialo esperantigo kie, li unua tioma eca. Substantiva postpostmorgaŭ ien om, jo ind duono spite
-            proksimumeco, peto kaŭze respondvorto de esk. Cit us viro landonomo, hav dz deci hodiaŭa solinfano.</p>
-    </div>
+  <div id="modal-content">
+    <span id="close">&times;</span>
+    <h2>Game Over</h2>
+    <h3>You {{result}}.</h3>
+    <p>Helpi nenii responde il pro. Sekve hebrea nul o, be des tria hebrea depost, do nun centi glota
+      senobjekta. Ar
+      sube kialo esperantigo kie, li unua tioma eca. Substantiva postpostmorgaŭ ien om, jo ind duono spite
+      proksimumeco, peto kaŭze respondvorto de esk. Cit us viro landonomo, hav dz deci hodiaŭa solinfano.</p>
+  </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script >
+<script>
   function turn(atkType) {
     console.log("Kachow");
     let coinFlip = Math.floor(Math.random() * 2);
