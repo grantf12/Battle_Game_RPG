@@ -20,7 +20,7 @@
       <div id="mb-health-container">
         <div id="message-board">
           <ul id="messages"></ul>
-          <form action="">
+          <form action="" style="bottom margin: 0">
             <input id="send" autocomplete="off" /><button>Send</button>
           </form>
         </div>
@@ -64,9 +64,8 @@
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/socket.io/socket.io.js"></script>
 <script>
-  $(function () {
+  {{!-- $(function () {
     var socket = io();
     $('form').submit(function(e){
       e.preventDefault(); // prevents page reloading
@@ -77,7 +76,7 @@
     socket.on('chat message', function(msg){
       $('#messages').append($('<li>').text(msg));
     });
-  });
+  }); --}}
 
 </script>
 
