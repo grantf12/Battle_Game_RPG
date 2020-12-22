@@ -34,4 +34,7 @@ module.exports = function(app, selectedCharacter) {
       res.render("character-select", { characters });
     });
   });
+  app.get("/results", (req, res) => {
+    res.render("results");
+  });
 };
