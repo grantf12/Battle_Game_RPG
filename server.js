@@ -20,7 +20,17 @@ app.set("view engine", "handlebars");
 
 // We need to use sessions to keep track of our user's login status
 app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+  session({
+    secret: "crunk_parrot",
+    name: "current_cookie",
+    proxy: true,
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+      maxAge: 86400000 * 30,
+      secure: false
+    }
+  })
 );
 app.use(passport.initialize());
 app.use(passport.session());
