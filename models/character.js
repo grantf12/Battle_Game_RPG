@@ -47,6 +47,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Character.prototype.attack = function(enemy, atkType) {
+    let remainingHp;
     function modifierRoll() {
       const randNum = Math.floor(Math.random() * 11);
       if (randNum === 0 || randNum === 1) {
@@ -60,10 +61,10 @@ module.exports = function(sequelize, DataTypes) {
     switch (atkType) {
       case "physAtk":
         modifierRoll();
-        const dmgOutput1 =
-          ((this.physAtkDmg * this.atk) / enemy.def / 5 + 2) * modifier;
-        enemy.hp -= dmgOutput1;
-        if (enemy.hp < 0) {
+        const dmgOutput1 = ((100 * this.atk) / enemy.def / 5 + 2) * modifier;
+        remainingHp = enemy.hp - dmgOutput1;
+        enemy.hp = remainingHp;
+        if (enemy.hp <= 0) {
           enemy.hp = 0;
         }
         //   $("#battle-message").append(`
@@ -72,13 +73,14 @@ module.exports = function(sequelize, DataTypes) {
         if (dmgOutput1 === 0) {
           console.log(" Missed!");
         }
-        break;
+        return { hp: remainingHp, dmg: dmgOutput1, alive: enemy.hp > 0 };
       case "magAtk":
         modifierRoll();
         const dmgOutput2 =
-          ((this.magAtkDmg * this.magAtk) / enemy.magDef / 5 + 2) * modifier;
-        enemy.hp -= dmgOutput2;
-        if (enemy.hp < 0) {
+          ((100 * this.magAtk) / enemy.magDef / 5 + 2) * modifier;
+        remainingHp = enemy.hp - dmgOutput2;
+        enemy.hp = remainingHp;
+        if (enemy.hp <= 0) {
           enemy.hp = 0;
           //   $("#battle-message").append(`
           // ${this.name} attacked ${enemy} with a Magical Attack for ${dmgOutput2} /n
@@ -90,6 +92,7 @@ module.exports = function(sequelize, DataTypes) {
             enemy.hp = 0;
           }
         }
+        return { hp: remainingHp, dmg: dmgOutput2, alive: enemy.hp > 0 };
     }
   };
   return Character;
