@@ -15,13 +15,17 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "bufferutil": "^4.0.2",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "mysql2": "^1.7.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.22.3"
+    "sequelize": "^5.22.3",
+    "socket.io": "^3.0.4",
+    "utf-8-validate": "^5.0.3",
+    "ws": "^7.4.1"
   },
   "devDependencies": {
     "eslint": "^7.15.0",
