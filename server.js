@@ -1,3 +1,4 @@
+"use strict";
 // Requiring necessary npm packages
 const express = require("express");
 const session = require("express-session");
@@ -27,6 +28,28 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const selectedCharacter = [];
+
+// socket io
+let http = require("http").createServer(app);
+let io = require("socket.io")(http);
+io.on("connection", socket => {
+  socket.on("chat message", msg => {
+    console.log("message: " + msg);
+  });
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
+});
+
+io.emit("some event", {
+  somePropery: "some value",
+  otherProperty: "other value"
+});
+io.on("connection", socket => {
+  socket.on("chat message", msg => {
+    io.emit("chat message", msg);
+  });
+});
 
 // Requiring our routes
 require("./routes/html-routes.js")(app, selectedCharacter);
