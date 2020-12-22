@@ -39,7 +39,7 @@ h2 {
   clear: both;
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:1300px) {
   .column {
       width: 100%;
   }
