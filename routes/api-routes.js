@@ -57,7 +57,6 @@ module.exports = function(app, selectedCharacter) {
   });
 
   app.post("/api/character-select/:id", (req, res) => {
-    // console.log("selecting character");
     db.Character.findByPk(req.params.id).then(playable => {
       db.Character.findAll({}).then(restOfCharacters => {
         restOfCharacters = JSON.parse(JSON.stringify(restOfCharacters));
@@ -67,18 +66,11 @@ module.exports = function(app, selectedCharacter) {
         selectedCharacter[0] = JSON.parse(JSON.stringify(playable));
         selectedCharacter[1] =
           filteredList[Math.floor(Math.random() * filteredList.length)];
-        // console.log(selectedCharacter[0]);
-        // console.log(selectedCharacter[1], "**********");
         return res.sendStatus(200);
       });
     });
   });
   app.post("/api/attack", async (req, res) => {
-    // console.log("bob");
-    // const test = await selectedCharacter[0].attack(
-    //   selectedCharacter[1],
-    //   req.body.attack
-    // );
     const enemy = await db.Character.findByPk(selectedCharacter[1].id);
     const character = await db.Character.findByPk(selectedCharacter[0].id);
     const enemyInfo = await character.attack(enemy, req.body.attack);
