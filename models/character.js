@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   const Character = sequelize.define("Character", {
     name: {
       type: DataTypes.STRING,
@@ -46,7 +46,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  Character.prototype.attack = function (enemy, atkType) {
+  Character.prototype.attack = function(enemy, atkType) {
     let remainingHp;
     function modifierRoll() {
       const randNum = Math.floor(Math.random() * 11);

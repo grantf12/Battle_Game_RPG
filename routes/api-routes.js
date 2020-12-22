@@ -3,7 +3,7 @@ const passport = require("../config/passport");
 const Op = require("sequelize");
 const character = require("../models/character");
 
-module.exports = function (app, selectedCharacter) {
+module.exports = function(app, selectedCharacter) {
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     res.json({
       email: req.user.email,
@@ -46,11 +46,11 @@ module.exports = function (app, selectedCharacter) {
         where: {
           name: req.params.name
         }
-      }).then(function (dbName) {
+      }).then(function(dbName) {
         res.json(dbName);
       });
     } else {
-      db.Character.findAll().then(function (data) {
+      db.Character.findAll().then(function(data) {
         return res.json(data);
       });
     }
@@ -84,8 +84,8 @@ module.exports = function (app, selectedCharacter) {
     const enemyInfo = await character.attack(enemy, req.body.attack);
     console.log(result, `${character.name} attacked ${enemy.name}`);
     await enemy.save();
-    const atkArray = ["physAtk", "magAtk"]
-    const randomAtk = atkArray[Math.floor(Math.random() * atkArray.length)]
+    const atkArray = ["physAtk", "magAtk"];
+    const randomAtk = atkArray[Math.floor(Math.random() * atkArray.length)];
     const characterInfo = await enemy.attack(character, randomAtk);
     console.log(result2, `${enemy.name} attacked ${character.name}`);
     await character.save();
