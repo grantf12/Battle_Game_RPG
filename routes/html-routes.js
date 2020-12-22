@@ -21,7 +21,7 @@ module.exports = function(app, selectedCharacter) {
   });
 
   app.get("/battle", (req, res) => {
-    console.log(selectedCharacter, "<===");
+    // console.log(selectedCharacter, "<===");
     res.render("battle", {
       character1: selectedCharacter[0],
       character2: selectedCharacter[1]
@@ -33,5 +33,8 @@ module.exports = function(app, selectedCharacter) {
       const characters = JSON.parse(JSON.stringify(result));
       res.render("character-select", { characters });
     });
+  });
+  app.get("/results", (req, res) => {
+    res.render("results");
   });
 };

@@ -1,5 +1,7 @@
 /* eslint-disable prettier/prettier */
 
+const { default: ModelManager } = require("sequelize/types/lib/model-manager");
+
 //on button click, run coin flip to determine which character moves first.
 //then run a.attack(b) and check isAlive();
 //if alive, run b.attack(a) and check isAlive();
@@ -41,6 +43,6 @@
 
 
 function endGame() {
-  User.score += 1;
+  
   //if statement that displays whether you won or lost in the modal text area
 }
