@@ -3,7 +3,7 @@ const passport = require("../config/passport");
 const Op = require("sequelize");
 const character = require("../models/character");
 
-module.exports = function(app, selectedCharacter) {
+module.exports = function (app, selectedCharacter) {
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     res.json({
       email: req.user.email,
@@ -46,18 +46,18 @@ module.exports = function(app, selectedCharacter) {
         where: {
           name: req.params.name
         }
-      }).then(function(dbName) {
+      }).then(function (dbName) {
         res.json(dbName);
       });
     } else {
-      db.Character.findAll().then(function(data) {
+      db.Character.findAll().then(function (data) {
         return res.json(data);
       });
     }
   });
 
   app.post("/api/character-select/:id", (req, res) => {
-    console.log("selecting character");
+    // console.log("selecting character");
     db.Character.findByPk(req.params.id).then(playable => {
       db.Character.findAll({}).then(restOfCharacters => {
         restOfCharacters = JSON.parse(JSON.stringify(restOfCharacters));
@@ -68,23 +68,27 @@ module.exports = function(app, selectedCharacter) {
         selectedCharacter[1] =
           filteredList[Math.floor(Math.random() * filteredList.length)];
         // console.log(selectedCharacter[0]);
-        console.log(selectedCharacter[1], "**********");
-        res.sendStatus(200);
+        // console.log(selectedCharacter[1], "**********");
+        return res.sendStatus(200);
       });
     });
   });
   app.post("/api/attack", async (req, res) => {
-    console.log("bob");
+    // console.log("bob");
     // const test = await selectedCharacter[0].attack(
     //   selectedCharacter[1],
     //   req.body.attack
     // );
     const enemy = await db.Character.findByPk(selectedCharacter[1].id);
-    db.Character.findByPk(selectedCharacter[0].id).then(character => {
-      const result = character.attack(enemy, req.body.attack);
-      console.log(result, "++++++", selectedCharacter);
-      res.sendStatus(200);
-    });
+    const character = await db.Character.findByPk(selectedCharacter[0].id);
+    const enemyInfo = await character.attack(enemy, req.body.attack);
+    console.log(result, `${character.name} attacked ${enemy.name}`);
+    await enemy.save();
+    const atkArray = ["physAtk", "magAtk"]
+    const randomAtk = atkArray[Math.floor(Math.random() * atkArray.length)]
+    const characterInfo = await enemy.attack(character, randomAtk);
+    console.log(result2, `${enemy.name} attacked ${character.name}`);
+    await character.save();
+    return res.send({ enemyInfo, characterInfo });
   });
-  // app.get("/api/character-select/:name", (req, res) => {});
 };
