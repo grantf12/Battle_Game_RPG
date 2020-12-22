@@ -74,12 +74,12 @@ module.exports = function(app, selectedCharacter) {
     const enemy = await db.Character.findByPk(selectedCharacter[1].id);
     const character = await db.Character.findByPk(selectedCharacter[0].id);
     const enemyInfo = await character.attack(enemy, req.body.attack);
-    console.log(result, `${character.name} attacked ${enemy.name}`);
+    console.log(enemyInfo, `${character.name} attacked ${enemy.name}`);
     await enemy.save();
     const atkArray = ["physAtk", "magAtk"];
     const randomAtk = atkArray[Math.floor(Math.random() * atkArray.length)];
     const characterInfo = await enemy.attack(character, randomAtk);
-    console.log(result2, `${enemy.name} attacked ${character.name}`);
+    console.log(characterInfo, `${enemy.name} attacked ${character.name}`);
     await character.save();
     return res.send({ enemyInfo, characterInfo });
   });
