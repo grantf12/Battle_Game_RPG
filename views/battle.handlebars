@@ -52,7 +52,6 @@
 
 </div>
 
-
 <div id="game-over-modal">
   <div id="modal-content">
     <span id="close">&times;</span>
@@ -65,40 +64,4 @@
   </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-{{!-- <script >
-
-  function turn(atkType) {
-    console.log("Kachow");
-    let coinFlip = Math.floor(Math.random() * 2);
-    if (coinFlip === 0) {
-      character1.attack(character2, atkType);
-      //display the messages set to console.log in the atk function in the message space.
-      if (character2.hp === 0) {
-        endGame();
-      }
-      character2.attack(character1, atkType);
-      //display the messages set to console.log in the atk function in the message space.
-      if (character1.hp === 0) {
-        endGame();
-      }
-    } else {
-      character2.attack(character1, atkType);
-      //display the messages set to console.log in the atk function in the message space.
-      if (character1.hp === 0) {
-        endGame();
-      }
-      character1.attack(character2, atkType);
-      //display the messages set to console.log in the atk function in the message space.
-      if (character2.hp === 0) {
-        endGame();
-      }
-    }
-    return;
-  }
-
-  $("#physical-button").on("click", function(){turn("physAtk")})
-</script> --}}
 <script src="/js/battle.js"></script>
-
