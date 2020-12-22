@@ -274,12 +274,38 @@ button:hover {
   font-size: 1.75rem;
 }
 
-#attack-1-button {
-    color: #04BFBF;
+.attack {
+  text-align: center;
+  text-decoration: none;
+  font-family: ccmonstermash, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.75rem;
+  border-style: none;
+  transition-duration: .15s;
+  background-color: black;
+  color: white;
 }
 
-#attack-2-button {
-    color: #F20587;
+.attack:hover {
+  font-size: 2rem;
+}
+
+#submit-character-selection {
+  text-align: center;
+  text-decoration: none;
+  font-family: ccmonstermash, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.75rem;
+  border-style: none;
+  transition-duration: .15s;
+  background-color: black;
+  color: white;
+}
+
+#submit-character-selection:hover {
+  font-size: 2rem;
 }
   
 .label {
