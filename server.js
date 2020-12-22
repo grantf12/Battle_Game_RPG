@@ -22,6 +22,7 @@ app.set("view engine", "handlebars");
 app.use(
   session({ secret: "waterhose", resave: true, saveUninitialized: true })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 
